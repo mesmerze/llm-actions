@@ -1,0 +1,22 @@
+name: Healing
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12.0'
+          cache: 'pipenv'
+      - name: Install pipenv
+        run: curl https://raw.githubusercontent.com/pypa/pipenv/master/get-pipenv.py | python
+      - run: pipenv install
+
+      - name: Run code snippet
+        run: |
+          pipenv run python healing.py "${{ secrets.OPENAI_API_KEY }}"
