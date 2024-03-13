@@ -16,7 +16,7 @@ runs:
         fetch-depth: 2
     - uses: actions/setup-python@v5
       with:
-        python-version: '3.12.0'
+        python-version: '3.13.0-alpha.4'
         cache: 'pipenv'
     - name: Install pipenv
       run: curl https://raw.githubusercontent.com/pypa/pipenv/master/get-pipenv.py | python
